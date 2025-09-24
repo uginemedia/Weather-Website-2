@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="weather-app">
+      <div class="main-weather" data-aos="zoom-in" data-aos-duration="2000">
+        <div class="location-bar">
+          <ion-icon name="location-outline"></ion-icon>
+          <input value="Hanoi, Vietnam" id="location-input" />
+        </div>
+        <div class="temperature">28°</div>
+        <div class="condition">Rainy Day</div>
+        <p class="description">
+          Today, expect a rainy day with temperatures reaching a maximum of
+          28°C. Make sure to grab your umbrella and raincoat before heading out.
+        </p>
+      </div>
+
+      <div class="details-grid">
+        <div
+          class="card detail-card"
+          data-aos="flip-left"
+          data-aos-duration="2000"
+          data-aos-delay="500"
+        >
+          <div class="header">
+            <ion-icon name="thermometer-outline"></ion-icon>
+            <span>FEELS LIKE</span>
+          </div>
+          <div class="value">30°</div>
+          <p class="subtext">Humidity is making it feel warmer</p>
+        </div>
+        <div
+          class="card detail-card"
+          data-aos="flip-left"
+          data-aos-duration="2000"
+          data-aos-delay="700"
+        >
+          <div class="header">
+            <ion-icon name="rainy-outline"></ion-icon>
+            <span>PRECIPITATION</span>
+          </div>
+          <div class="value">2.3"</div>
+          <p class="subtext">2" expected in next 24h</p>
+        </div>
+        <div
+          class="card detail-card"
+          data-aos="flip-left"
+          data-aos-duration="2000"
+          data-aos-delay="900"
+        >
+          <div class="header">
+            <ion-icon name="eye-outline"></ion-icon>
+            <span>VISIBILITY</span>
+          </div>
+          <div class="value">6 mi</div>
+        </div>
+        <div
+          class="card detail-card"
+          data-aos="flip-left"
+          data-aos-duration="2000"
+          data-aos-delay="1100"
+        >
+          <div class="header">
+            <ion-icon name="water-outline"></ion-icon>
+            <span>HUMIDITY</span>
+          </div>
+          <div class="value">82%</div>
+          <p class="subtext">The dew point is 25° right now</p>
+        </div>
+      </div>
+
+      <!-- Hourly Forecast -->
+      <div
+        class="card hourly-forecast"
+        data-aos="flip-up"
+        data-aos-duration="2000"
+        data-aos-delay="1300"
+      >
+        <div class="forecast-container">
+          <div class="forecast-header">
+            <ion-icon name="timer-outline"></ion-icon>
+            <span>HOURLY FORECAST</span>
+          </div>
+          <div class="forecast-content">
+            <div class="forecast-item">
+              <div class="label">Now</div>
+              <ion-icon name="rainy-outline"></ion-icon>
+              <div class="temp temperature">28°</div>
+            </div>
+            <div class="forecast-item">
+              <div class="label">15:00</div>
+              <ion-icon name="rainy-outline"></ion-icon>
+              <div class="temp">28°</div>
+            </div>
+            <div class="forecast-item">
+              <div class="label">16:00</div>
+              <ion-icon name="thunderstorm-outline"></ion-icon>
+              <div class="temp">26°</div>
+            </div>
+            <div class="forecast-item">
+              <div class="label">17:00</div>
+              <ion-icon name="thunderstorm-outline"></ion-icon>
+              <div class="temp">29°</div>
+            </div>
+            <div class="forecast-item">
+              <div class="label">18:00</div>
+              <ion-icon name="sunny-outline"></ion-icon>
+              <div class="temp">32°</div>
+            </div>
+            <div class="forecast-item">
+              <div class="label">19:00</div>
+              <ion-icon name="partly-sunny-outline"></ion-icon>
+              <div class="temp">24°</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ten Days Forecast -->
+      <div
+        class="card ten-day-forecast"
+        data-aos="flip-up"
+        data-aos-duration="2000"
+        data-aos-delay="1500"
+      >
+        <div class="forecast-container">
+          <div class="forecast-header">
+            <ion-icon name="calendar-clear-outline"></ion-icon>
+            <span>10-DAY FORECAST</span>
+          </div>
+          <div class="forecast-content">
+            <div class="forecast-item">
+              <div class="label">Today</div>
+              <div class="sublabel">16/09</div>
+              <ion-icon name="rainy-outline"></ion-icon>
+              <div class="temp temperature">28°</div>
+            </div>
+            <div class="forecast-item">
+              <div class="label">Thu</div>
+              <div class="sublabel">17/09</div>
+              <ion-icon name="rainy-outline"></ion-icon>
+              <div class="temp">28°</div>
+            </div>
+            <div class="forecast-item">
+              <div class="label">Fri</div>
+              <div class="sublabel">18/09</div>
+              <ion-icon name="partly-sunny-outline"></ion-icon>
+              <div class="temp">24°</div>
+            </div>
+            <div class="forecast-item">
+              <div class="label">Sat</div>
+              <div class="sublabel">19/09</div>
+              <ion-icon name="sunny-outline"></ion-icon>
+              <div class="temp">32°</div>
+            </div>
+            <div class="forecast-item">
+              <div class="label">Sun</div>
+              <div class="sublabel">20/09</div>
+              <ion-icon name="thunderstorm-outline"></ion-icon>
+              <div class="temp">19°</div>
+            </div>
+            <div class="forecast-item">
+              <div class="label">Mon</div>
+              <div class="sublabel">21/09</div>
+              <ion-icon name="rainy-outline"></ion-icon>
+              <div class="temp">28°</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="other-details-grid">
+        <div
+          class="card uv-index"
+          data-aos="flip-right"
+          data-aos-duration="2000"
+          data-aos-delay="1700"
+        >
+          <div class="header">
+            <ion-icon name="thermometer-outline"></ion-icon>
+            <span>UV INDEX</span>
+          </div>
+          <div class="value">3</div>
+          <div class="subtext">Moderate</div>
+          <div class="progress-bar">
+            <div class="progress"></div>
+          </div>
+          <p class="subtext" style="margin-top: 0.5rem">
+            Use sun protection until 16:00
+          </p>
+        </div>
+        <div
+          class="card wind-card"
+          data-aos="flip-right"
+          data-aos-duration="2000"
+          data-aos-delay="1900"
+        >
+          <div class="header">
+            <ion-icon name="speedometer-outline"></ion-icon>
+            <span>WIND</span>
+          </div>
+          <div class="wind-details">
+            <div class="wind-info">
+              <div class="value">3 <span>MPH</span></div>
+              <div class="subtext">Wind</div>
+              <div class="value" style="margin-top: 1rem">
+                9 <span>MPH</span>
+              </div>
+              <div class="subtext">Gusts</div>
+            </div>
+            <div class="compass">
+              <div class="direction n">N</div>
+              <div class="direction e">E</div>
+              <div class="direction s">S</div>
+              <div class="direction w">W</div>
+              <div class="arrow"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>

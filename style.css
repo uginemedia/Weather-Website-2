@@ -1,0 +1,371 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@300;400;500&display=swap");
+
+:root {
+  --bg-color: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --card-bg: rgba(38, 38, 38, 0.5);
+  --card-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-image: url("./bg.jpg");
+  background-size: cover;
+  background-position: center;
+  color: var(--text-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.weather-app {
+  width: 100%;
+  max-width: 1200px;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: auto auto 1fr;
+  gap: 1.5rem;
+  grid-template-areas:
+    "main-weather hourly-forecast"
+    "main-weather ten-day-forecast"
+    "details ten-day-forecast"
+    "details other-details";
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 1.25rem;
+  backdrop-filter: blur(10px);
+}
+
+/* --- Main Weather Display --- */
+.main-weather {
+  grid-area: main-weather;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.location-bar {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  width: 100%;
+  display: inline-flex;
+  gap: 2px;
+  align-items: center;
+  align-self: flex-start;
+}
+
+.location-bar ion-icon {
+  margin-right: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.location-bar input {
+  background: transparent;
+  width: 100%;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.main-weather .temperature {
+  font-size: 7rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.main-weather .condition {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-top: 0.5rem;
+}
+
+.main-weather .description {
+  color: var(--text-primary);
+  font-size: 1rem;
+  margin-top: auto;
+  padding-top: 2rem;
+  margin: 0 auto;
+}
+
+/* --- Small Detail Cards --- */
+.details-grid {
+  grid-area: details;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.detail-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-card .header {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 0.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.detail-card .header ion-icon {
+  margin-right: 0.1rem;
+  font-size: 1.2rem;
+}
+
+.detail-card .value {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.detail-card .subtext {
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+/* --- Forecast Sections --- */
+.hourly-forecast {
+  grid-area: hourly-forecast;
+}
+.ten-day-forecast {
+  grid-area: ten-day-forecast;
+}
+.other-details-grid {
+  grid-area: other-details;
+}
+
+.forecast-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.forecast-header {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--card-border);
+}
+
+.forecast-header ion-icon {
+  margin-right: 0.4rem;
+  font-size: 1.2rem;
+}
+
+.forecast-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.forecast-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem 0;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  flex-grow: 1;
+}
+
+.forecast-item:nth-child(1) {
+  background: var(--card-bg);
+  border-radius: 10px;
+}
+
+.forecast-item .label {
+  margin-bottom: 0.75rem;
+}
+
+.forecast-item .temp {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-top: 0.75rem;
+}
+
+.forecast-item ion-icon {
+  font-size: 1.75rem;
+  color: var(--text-primary);
+}
+
+.ten-day-forecast .forecast-item {
+  padding: 0.75rem 0;
+}
+
+/* --- UV Index & Wind --- */
+.other-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* UV Index */
+.uv-index .header {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.uv-index .header ion-icon {
+  font-size: 1.3rem;
+}
+
+.uv-index .progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.uv-index .progress {
+  width: 44%;
+  height: 100%;
+  background: linear-gradient(to right, #69d164, #f7d45c, #f75c4c);
+  border-radius: 4px;
+}
+
+/* Wind Compass */
+.wind-card .header {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.wind-card .value {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+.wind-card .value span {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  padding-bottom: 0.3rem;
+}
+
+.wind-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wind-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.compass {
+  width: 80px;
+  height: 80px;
+  border: 2px solid var(--card-border);
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
+  color: var(--text-primary);
+}
+
+.compass .direction {
+  position: absolute;
+}
+
+.compass .n {
+  top: 5px;
+}
+.compass .e {
+  right: 5px;
+}
+.compass .s {
+  bottom: 5px;
+}
+.compass .w {
+  left: 5px;
+}
+
+.compass .arrow {
+  position: relative;
+  top: -0.3rem;
+  right: -0.3rem;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 30px solid var(--text-primary);
+  transform: rotate(45deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  body {
+    padding: 1rem;
+  }
+  .weather-app {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "main-weather"
+      "details"
+      "hourly-forecast"
+      "ten-day-forecast"
+      "other-details";
+  }
+  .forecast-content {
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+  .forecast-item {
+    min-width: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .details-grid,
+  .other-details-grid {
+    grid-template-columns: 1fr;
+  }
+  .main-weather .temperature {
+    font-size: 5rem;
+  }
+  .main-weather .condition {
+    font-size: 1.75rem;
+  }
+}
